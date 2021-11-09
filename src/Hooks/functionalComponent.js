@@ -9,10 +9,13 @@ const FunctionalComponent = () => {
     }
     useEffect(()=>{
        const myTimer = setInterval(()=>{
-           setTimer(timer + 1);
+           setTimer(timer =>timer +1 );
        },1000) ;
        return () =>{ clearInterval(myTimer);}
     },[])
+    useEffect(()=>{
+        console.log(timer)
+    },[timer])
     // useEffect(()=>{
     //     console.log(`Functional Component didUpdate`)
     // },[counter])
