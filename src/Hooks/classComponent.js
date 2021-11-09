@@ -12,7 +12,6 @@ class ClassComponent extends Component {
         })
     }
     componentWillMount() {
-    alert(5)
     }
 
     componentDidMount() {

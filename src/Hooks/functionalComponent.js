@@ -3,16 +3,22 @@ import {Badge, Button, Col, Row} from "react-bootstrap";
 
 const FunctionalComponent = () => {
     const [counter, setCounter] = useState(0);
-
+    const [timer,setTimer] = useState(0);
     const increase = () => {
         setCounter(counter + 1)
     }
+    useEffect(()=>{
+       const myTimer = setInterval(()=>{
+           setTimer(timer + 1);
+       },1000) ;
+       return () =>{ clearInterval(myTimer);}
+    },[])
     // useEffect(()=>{
     //     console.log(`Functional Component didUpdate`)
-    // })
-    useEffect(()=>{
-        console.log(`Functional Component didMount`)
-    },[])
+    // },[counter])
+    // useEffect(()=>{
+    //     console.log(`Functional Component didMount`)
+    // },[])
     return(
         <Row>
             <Col md={12} style={{height: '300px',backgroundColor:"aliceblue"}} className="text-center">
